@@ -12,3 +12,4 @@ com o comando "pip install -r requirements.txt", pelo terminal. Depois que a ins
 
 3. Gif do programa funcionando:
 
+![alt-text](https://github.com/juliapaiva1/cubo_giratorio/blob/main/gif_cubo.gif)
