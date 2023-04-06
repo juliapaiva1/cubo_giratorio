@@ -72,10 +72,10 @@ Combinando as duas matrizes, chegamos à nossa matriz de transformação:
 
 $$
 \begin{bmatrix}
- 1 & 0 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 0 & -d\\
- 0 & 0 & -1/d & 0\\
+0 & 0 & 0 & -d \\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1/d & 0 
 \end{bmatrix}
 $$
 
@@ -130,16 +130,7 @@ V = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Com essa multiplicação feita, obtemos uma matriz de vértices rotacionados, e podemos finalmente aplicar a matriz de transformação, obtida antes:
-
-$$
-V = \begin{bmatrix}
-0 & 0 & 0 & -d \\
-1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & -1/d & 0 
-\end{bmatrix}
-$$
+Com essa multiplicação feita, obtemos uma matriz de vértices rotacionados, e podemos finalmente aplicar a matriz de transformação, obtida antes.
 
 Com isso, obtemos uma matriz que representa os pontos projetados, e podemos utilizar seus pontos para criar as arestas, como apontado no código.
 
