@@ -130,7 +130,7 @@ V = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Com essa multiplicação feita, obtemos uma matriz de vértices rotacionados, e podemos finalmente aplicar a matriz de transformação, obtida antes.
+Com essa multiplicação feita, obtemos uma matriz de vértices rotacionados, e podemos finalmente aplicar a matriz de transformação, obtida antes, através de uma multiplicação matricial.
 
 Com isso, obtemos uma matriz que representa os pontos projetados, e podemos utilizar seus pontos para criar as arestas, como apontado no código.
 
