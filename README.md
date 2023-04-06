@@ -44,17 +44,6 @@ $$
  0 & 0 & -d \\
  0 & -1/d & 0
 \end{bmatrix}
-\begin{bmatrix}
-    x0 \\
-    y0 \\
-    1
-\end{bmatrix}
-=
-\begin{bmatrix}
-    xpwp \\
-    yp \\
-    wp
-\end{bmatrix}
 $$
 
 Agora fazemos o mesmo processo, mas ao invés de usarmos os pares (X0, Y0) e (Xp, Yp), usamos (Z0, Y0) e (Zp, Yp). A seguir, os passos seguem a mesma lógica dos anteriores:
