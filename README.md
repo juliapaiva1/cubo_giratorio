@@ -49,7 +49,7 @@ $$
 Agora fazemos o mesmo processo, mas ao invés de usarmos os pares (X0, Y0) e (Xp, Yp), usamos (Z0, Y0) e (Zp, Yp). A seguir, os passos seguem a mesma lógica dos anteriores:
 
 $$
-Tan (\theta) = \frac{y0}{z0} = \frac{zp}
+Y0 = \frac{yp*z0}{zp}
 $$
 
 Y0 = Yp * Wp
@@ -66,18 +66,6 @@ $$
  0 & 0 & -d \\
  0 & -1/d & 0
 \end{bmatrix}
-\begin{bmatrix}
- Y0\\
- Z0\\
- 1
-\end{bmatrix}
-=
-
-\begin{bmatrix}
- YpWp\\
- Zp\\
- Wp
-\end{bmatrix}
 $$
 
 Combinando as duas matrizes, chegamos à nossa matriz de transformação:
@@ -88,20 +76,6 @@ $$
  0 & 1 & 0 & 0 \\
  0 & 0 & 0 & -d\\
  0 & 0 & -1/d & 0\\
-\end{bmatrix}
-\begin{bmatrix}
- X0\\
- Y0\\
- Z0\\
- 1
-\end{bmatrix}
-=
-
-\begin{bmatrix}
- XpWp\\
- YpWp\\
- Zp\\
- Wp\\
 \end{bmatrix}
 $$
 
