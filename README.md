@@ -8,7 +8,114 @@ com o comando "pip install -r requirements.txt", pelo terminal. Depois que a ins
 
 2. Modelo matemático:
 
-(descrição matemática do modelo que você implementou, incluindo quais transformações foram aplicadas e como as matrizes de transformação funcionam)
+Fazer com que um cubo possa girar em várias direções digitalmente envolve uma análise sobre a projeção de pontos. Podemos ter uma noção melhor de como a projeção funciona através do modelo de câmera pinhole, que usamos como base aqui. Utilizando elementos desse modelo, podemos chegar à uma matriz que será chamada "matriz de transformação", que apontará para onde os pontos estão sendo projetados.
+
+![alt-text](https://github.com/juliapaiva1/cubo_giratorio/blob/main/pinhole_diagrama.png)
+
+Podemos pensar em começar encontrando equações para determinar os valores de Xp e Yp, mantendo o eixo Z estático por enquanto. Como é perceptível na imagem, temos dois triângulos sendo formados, então podemos utilizar semelhança de triângulos. Pela maneira como os triângulos estão dispostos, podemos estabelecer uma relação pela tangente:
+
+$$
+Tan (\theta) = \frac{x0}{y0} = \frac{xp}{yp}
+$$
+
+E, para encontrar a equação correspondente à Xp, podemos isolá-lo:
+
+$$
+Xp = \frac{x0*yp}{y0}
+$$
+
+O ideal é que encontremos um número real, que multiplicado por X0, resulte em Xp. Podemos chamar esse número real de Wp, e representá-lo com a seguinte equação:
+
+$$
+X0 = Xp * Wp
+$$
+
+Para encontrar a equação referente à Wp, podemos aproveitar essa equação anterior, apenas isolando o Wp, e tomando yp como -d (pois Yp pode ser interpretado como a distância entre o eixo x e o anteparo):
+
+$$
+Wp = \frac{y0}{yp} = \frac{y0}{-d}
+$$
+
+Podemos representar em matriz, então, como:
+
+$$
+\begin{bmatrix}
+ 1 & 0 & 0 \\
+ 0 & 0 & -d \\
+ 0 & -1/d & 0
+\end{bmatrix}
+\begin{bmatrix}
+ x0\\
+ y0\\
+ 1
+\end{bmatrix}
+=
+
+\begin{bmatrix}
+ XpWp\\
+ Yp\\
+ Wp
+\end{bmatrix}
+$$
+
+Agora fazemos o mesmo processo, mas ao invés de usarmos os pares (X0, Y0) e (Xp, Yp), usamos (Z0, Y0) e (Zp, Yp). A seguir, os passos seguem a mesma lógica dos anteriores:
+
+$$
+Tan (\theta) = \frac{y0}{z0} = \frac{zp}
+$$
+
+Y0 = Yp * Wp
+
+$$
+Wp = \frac{Z0}{Zp} 
+$$
+
+E obtemos a seguinte representação:
+
+$$
+\begin{bmatrix}
+ 1 & 0 & 0 \\
+ 0 & 0 & -d \\
+ 0 & -1/d & 0
+\end{bmatrix}
+\begin{bmatrix}
+ Y0\\
+ Z0\\
+ 1
+\end{bmatrix}
+=
+
+\begin{bmatrix}
+ YpWp\\
+ Zp\\
+ Wp
+\end{bmatrix}
+$$
+
+Combinando as duas matrizes, chegamos à nossa matriz de transformação:
+
+$$
+\begin{bmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & -d\\
+ 0 & 0 & -1/d & 0\\
+\end{bmatrix}
+\begin{bmatrix}
+ X0\\
+ Y0\\
+ Z0\\
+ 1
+\end{bmatrix}
+=
+
+\begin{bmatrix}
+ XpWp\\
+ YpWp\\
+ Zp\\
+ Wp\\
+\end{bmatrix}
+$$
 
 Para que o cubo gire perfeitamente e permaneça no centro da tela, são incorporadas quatro matrizes diferentes na matriz do cubo: rotação (nos eixos x, y e z) e translação. As matrizes de rotação utilizadas são as seguintes:
 
@@ -56,7 +163,7 @@ V = \begin{bmatrix}
 -1 & 1 & 1 \\
 1 & -1 & -1 \\
 1 & -1 & 1 \\
-1 & 1 & -1 & z \\
+1 & 1 & -1 \\
 1 & 1 & 1 
 \end{bmatrix}
 $$
@@ -74,11 +181,7 @@ $$
 
 Com isso, obtemos uma matriz que representa os pontos projetados, e podemos utilizar seus pontos para criar as arestas, como apontado no código.
 
-organizacao: 
 
-1 - explicar o modelo matematico em si (a explicacao da lousa)
-2 - relacionar com o codigo
-3 - explicar como foram feitas as transformacoes de matrizes
 
 3. Gif do programa funcionando:
 
