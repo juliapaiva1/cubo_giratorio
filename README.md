@@ -49,8 +49,10 @@ $$
  y0\\
  1
 \end{bmatrix}
+$$
 =
 
+$$
 \begin{bmatrix}
  XpWp\\
  Yp\\
