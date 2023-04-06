@@ -44,6 +44,7 @@ $$
  0 & 0 & -d \\
  0 & -1/d & 0
 \end{bmatrix}
+$$
 \begin{bmatrix}
  x0\\
  y0\\
